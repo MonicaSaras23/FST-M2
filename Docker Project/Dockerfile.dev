@@ -1,0 +1,17 @@
+#base image
+FROM node:16-alpine
+
+#change workdir
+WORKDIR /usr/app
+
+#copy package.json
+COPY package.json .
+
+#install dependencies
+RUN npm install
+
+#copy the remaining files
+COPY . .
+
+#run
+CMD ["npm", "run", "serve"]
